@@ -1,0 +1,271 @@
+/* Integrantes: 
+    Luiz Gustavo Verissimo Monteiro - CB3030326 
+    Kaik Persike Maiorquino - CB3029689 */
+/* Configurações gerais */
+html {
+    font-size: 14px;
+    min-height: 100%;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+body {
+    margin: 0;
+    background-color: #f4f7fb;
+    color: #263449;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* Barra de navegação */
+.navbar-Stockly {
+    background: linear-gradient(110deg, #12366a, #1e5799);
+    padding: 0.85rem 0;
+    box-shadow: 0 3px 12px rgba(20, 49, 87, 0.12);
+}
+
+    .navbar-manaprod .navbar-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        color: #ffffff;
+        font-size: 1.35rem;
+        font-weight: 700;
+        letter-spacing: 0.2px;
+    }
+
+        .navbar-manaprod .navbar-brand:hover {
+            color: #e2edff;
+        }
+
+.brand-symbol {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #17447f;
+    font-size: 1.15rem;
+    font-weight: 800;
+}
+
+.navbar-Stockly .nav-link {
+    color: rgba(255, 255, 255, 0.84);
+    padding: 0.65rem 1rem;
+    border-radius: 7px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+    .navbar-Stockly .nav-link:hover,
+    .navbar-Stockly .nav-link:focus {
+        color: #ffffff;
+        background-color: rgba(255, 255, 255, 0.12);
+    }
+
+/* Títulos */
+h1, h2, h3, h4, h5 {
+    color: #1c2f49;
+    font-weight: 650;
+}
+
+h1 {
+    letter-spacing: -0.5px;
+}
+
+/* Cards */
+.card {
+    border: 1px solid #e5eaf1;
+    border-radius: 14px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 16px rgba(32, 56, 85, 0.045);
+}
+
+.card-header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #edf0f5;
+    padding: 1rem 1.25rem;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Botões */
+.btn {
+    border-radius: 8px;
+    padding: 0.55rem 1rem;
+    font-weight: 550;
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary {
+    background-color: #215ba8;
+    border-color: #215ba8;
+}
+
+    .btn-primary:hover {
+        background-color: #174783;
+        border-color: #174783;
+    }
+
+.btn-danger {
+    background-color: #c83c4a;
+    border-color: #c83c4a;
+}
+
+    .btn-danger:hover {
+        background-color: #a92c39;
+        border-color: #a92c39;
+    }
+
+.btn-outline-secondary {
+    color: #475569;
+    border-color: #cbd5e1;
+}
+
+    .btn-outline-secondary:hover {
+        background-color: #e9eef5;
+        color: #263449;
+        border-color: #b8c5d5;
+    }
+
+/* Formulários */
+.form-label,
+.control-label {
+    color: #33445b;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.form-control,
+.form-select {
+    min-height: 42px;
+    border: 1px solid #d5deea;
+    border-radius: 8px;
+    color: #263449;
+    background-color: #ffffff;
+}
+
+textarea.form-control {
+    min-height: 110px;
+}
+
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+    border-color: #6a9fe0;
+    box-shadow: 0 0 0 0.2rem rgba(33, 91, 168, 0.15);
+}
+
+.form-group {
+    margin-bottom: 1.15rem;
+}
+
+.text-danger,
+.field-validation-error {
+    font-size: 0.875rem;
+}
+
+/* Tabelas */
+.table {
+    --bs-table-bg: transparent;
+    margin-bottom: 0;
+    vertical-align: middle;
+}
+
+    .table thead th {
+        background-color: #f0f4f9;
+        color: #40536c;
+        font-size: 0.875rem;
+        font-weight: 700;
+        white-space: nowrap;
+        border-bottom: 1px solid #dce5ef;
+        padding: 0.95rem 1rem;
+    }
+
+    .table tbody td {
+        color: #34445a;
+        padding: 1rem;
+        border-color: #edf0f5;
+    }
+
+    .table tbody tr:hover > * {
+        --bs-table-bg-state: #f7faff;
+    }
+
+/* Links */
+a {
+    transition: color 0.2s ease;
+}
+
+    a:focus-visible,
+    button:focus-visible,
+    .btn:focus-visible {
+        outline: 2px solid #4387d7;
+        outline-offset: 3px;
+    }
+
+/* Rodapé */
+.footer-Stockly {
+    margin-top: 2rem;
+    background-color: #ffffff;
+    border-top: 1px solid #e2e8f0;
+    color: #64748b;
+}
+
+.footer-content {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.footer-separator {
+    margin: 0 0.35rem;
+    color: #b0bac8;
+}
+
+.footer-link {
+    color: #215ba8;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+    .footer-link:hover {
+        color: #174783;
+        text-decoration: underline;
+    }
+
+/* Responsividade */
+@media (max-width: 767.98px) {
+    .navbar-Stockly .navbar-nav {
+        align-items: stretch !important;
+        padding-top: 0.75rem;
+    }
+
+    .navbar-Stockly .nav-link {
+        padding: 0.7rem 0.85rem;
+    }
+
+    .card-body {
+        padding: 1.15rem;
+    }
+
+    .footer-content {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+    }
+}

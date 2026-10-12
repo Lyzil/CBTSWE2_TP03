@@ -1,0 +1,61 @@
+﻿@*
+    Integrantes:
+
+    Luiz Gustavo Verissimo Monteiro - CB3030326
+    Kaik Persike Maiorquino - CB3029689
+*@
+
+@model CBTSWE2_TP03.Models.Produto
+
+@{
+    ViewData["Title"] = "Detalhes do produto";
+}
+
+<div class="mb-4">
+    <h1>Detalhes do produto</h1>
+    <p class="text-secondary mb-0">Consulte todas as informações do produto.</p>
+</div>
+
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <strong>@Model.Nome</strong>
+        <span class="badge @(Model.QtdEstoque == 0 ? "text-bg-danger" : "text-bg-success")">
+            @(Model.QtdEstoque == 0 ? "Sem estoque" : "Disponível")
+        </span>
+    </div>
+
+    <div class="card-body">
+        <dl class="row mb-0">
+            <dt class="col-sm-4 col-lg-3 mb-1">Código</dt>
+            <dd class="col-sm-8 col-lg-9 mb-3">@Model.Id</dd>
+
+            <dt class="col-sm-4 col-lg-3 mb-1">Nome</dt>
+            <dd class="col-sm-8 col-lg-9 mb-3">@Model.Nome</dd>
+
+            <dt class="col-sm-4 col-lg-3 mb-1">Descrição</dt>
+            <dd class="col-sm-8 col-lg-9 mb-3">
+                @(string.IsNullOrWhiteSpace(Model.Descricao)
+                    ? "Nenhuma descrição informada."
+                    : Model.Descricao)
+            </dd>
+
+            <dt class="col-sm-4 col-lg-3 mb-1">Preço</dt>
+            <dd class="col-sm-8 col-lg-9 mb-3">
+                @Model.Preco.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("pt-BR"))
+            </dd>
+
+            <dt class="col-sm-4 col-lg-3 mb-1">Quantidade em estoque</dt>
+            <dd class="col-sm-8 col-lg-9 mb-0">@Model.QtdEstoque unidade(s)</dd>
+        </dl>
+    </div>
+
+    <div class="card-footer bg-white d-flex flex-wrap gap-2">
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">
+            Editar produto
+        </a>
+        <a asp-action="Index" class="btn btn-outline-secondary">
+            Voltar para produtos
+        </a>
+    </div>
+</div>
+```

@@ -1,0 +1,15 @@
+# Arquivos gerados pelo Visual Studio
+.vs/
+.vscode/
+*.user
+*.suo
+
+# Arquivos de compilação
+bin/
+obj/
+
+# Arquivos temporários
+*.log
+
+# Configurações locais
+appsettings.Development.json

@@ -1,0 +1,99 @@
+﻿@*
+    Integrantes:
+
+    Luiz Gustavo Verissimo Monteiro - CB3030326
+    Kaik Persike Maiorquino - CB3029689
+*@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - Stockly</title>
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+    <link rel="stylesheet"
+          href="~/CBTSWE2_TP03.styles.css"
+          asp-append-version="true" />
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark navbar-Stockly">
+            <div class="container">
+
+                <a class="navbar-brand" asp-controller="Produto"
+                   asp-action="Index">
+                    <span class="brand-symbol">S</span>
+                    <span>Stockly</span>
+                </a>
+
+                <button class="navbar-toggler" type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#menuPrincipal"
+                        aria-controls="menuPrincipal"
+                        aria-expanded="false"
+                        aria-label="Abrir menu de navegação">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse"
+                     id="menuPrincipal">
+
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Produto"
+                               asp-action="Index">
+                                Início
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link"
+                               asp-controller="Produto"
+                               asp-action="Credito">
+                                Créditos
+                            </a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main role="main" class="container flex-grow-1 py-4 py-md-5">
+        @RenderBody()
+    </main>
+
+    <footer class="footer-Stockly mt-auto">
+        <div class="container footer-content">
+            <span>
+                &copy; @DateTime.Now.Year Stockly
+                <span class="footer-separator">|</span>
+                Sistema de gerenciamento de produtos
+            </span>
+
+            <a asp-controller="Produto"
+               asp-action="Credito"
+               class="footer-link">
+                Sobre o projeto
+            </a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

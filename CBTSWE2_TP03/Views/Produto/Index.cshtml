@@ -1,0 +1,104 @@
+﻿@*
+    Integrantes:
+
+    Luiz Gustavo Verissimo Monteiro - CB3030326
+    Kaik Persike Maiorquino - CB3029689
+*@
+
+@model IEnumerable<CBTSWE2_TP03.Models.Produto>
+
+@{
+    ViewData["Title"] = "Produtos";
+}
+
+<div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+    <div>
+        <h1 class="mb-1">Produtos</h1>
+        <p class="text-secondary mb-0">Consulte e gerencie os produtos cadastrados.</p>
+    </div>
+
+    <a asp-action="Create" class="btn btn-primary">
+        + Novo produto
+    </a>
+</div>
+
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <strong>Lista de produtos</strong>
+        <span class="text-secondary small">
+            Total: @Model.Count()
+        </span>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Estoque</th>
+                    <th class="text-end">Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Any())
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td class="fw-semibold">@item.Nome</td>
+                            <td>
+                                @(string.IsNullOrWhiteSpace(item.Descricao)
+                                    ? "Sem descrição"
+                                    : item.Descricao)
+                            </td>
+                            <td class="text-nowrap">
+                                @item.Preco.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("pt-BR"))
+                            </td>
+                            <td>
+                                <span class="badge rounded-pill @(item.QtdEstoque == 0 ? "text-bg-danger" : "text-bg-light")">
+                                    @item.QtdEstoque unidade(s)
+                                </span>
+                            </td>
+                            <td>
+                                <div class="d-flex justify-content-end flex-wrap gap-2">
+                                    <a asp-action="Details"
+                                       asp-route-id="@item.Id"
+                                       class="btn btn-sm btn-outline-secondary">
+                                        Detalhes
+                                    </a>
+                                    <a asp-action="Edit"
+                                       asp-route-id="@item.Id"
+                                       class="btn btn-sm btn-outline-primary">
+                                        Editar
+                                    </a>
+                                    <a asp-action="Delete"
+                                       asp-route-id="@item.Id"
+                                       class="btn btn-sm btn-outline-danger">
+                                        Excluir
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="5" class="text-center py-5">
+                            <h5>Nenhum produto cadastrado</h5>
+                            <p class="text-secondary mb-3">
+                                Cadastre seu primeiro produto para começar.
+                            </p>
+                            <a asp-action="Create" class="btn btn-primary">
+                                Cadastrar produto
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+```

@@ -1,0 +1,62 @@
+﻿@*
+    Integrantes:
+
+    Luiz Gustavo Verissimo Monteiro - CB3030326
+    Kaik Persike Maiorquino - CB3029689
+*@
+
+@model CBTSWE2_TP03.Models.Produto
+
+@{
+    ViewData["Title"] = "Excluir produto";
+}
+
+<div class="mb-4">
+    <h1>Excluir produto</h1>
+    <p class="text-secondary mb-0">Confira os dados antes de confirmar a exclusão.</p>
+</div>
+
+<div class="card">
+    <div class="card-header">
+        <strong>Confirmar exclusão</strong>
+    </div>
+
+    <div class="card-body">
+        <div class="alert alert-warning" role="alert">
+            Tem certeza de que deseja excluir este produto? Esta ação não poderá ser desfeita.
+        </div>
+
+        <dl class="row mb-4">
+            <dt class="col-sm-4 col-lg-3 mb-1">Código</dt>
+            <dd class="col-sm-8 col-lg-9 mb-3">@Model.Id</dd>
+
+            <dt class="col-sm-4 col-lg-3 mb-1">Nome</dt>
+            <dd class="col-sm-8 col-lg-9 mb-3">@Model.Nome</dd>
+
+            <dt class="col-sm-4 col-lg-3 mb-1">Descrição</dt>
+            <dd class="col-sm-8 col-lg-9 mb-3">
+                @(string.IsNullOrWhiteSpace(Model.Descricao)
+                    ? "Nenhuma descrição informada."
+                    : Model.Descricao)
+            </dd>
+
+            <dt class="col-sm-4 col-lg-3 mb-1">Preço</dt>
+            <dd class="col-sm-8 col-lg-9 mb-3">
+                @Model.Preco.ToString("C", System.Globalization.CultureInfo.GetCultureInfo("pt-BR"))
+            </dd>
+
+            <dt class="col-sm-4 col-lg-3 mb-1">Quantidade em estoque</dt>
+            <dd class="col-sm-8 col-lg-9 mb-0">@Model.QtdEstoque unidade(s)</dd>
+        </dl>
+
+        <form asp-action="Delete" method="post">
+            <input type="hidden" asp-for="Id" />
+
+            <div class="d-flex flex-wrap gap-2">
+                <button type="submit" class="btn btn-danger">Confirmar exclusão</button>
+                <a asp-action="Index" class="btn btn-outline-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+```
